@@ -48,7 +48,7 @@
     *  a2ensite <vHost file name>                                                <!-- answer -->
 
 10. What is the command to disable a new domain/vHost?
-    *  a2dissite <vHost file name>                                                <!-- answer -->
+    *  a2dissite "<vHost file name>"                                                <!-- answer -->
 
 11. What happens when a user enters a URL into the browser?
     *  The broswer checks a databse to determine the IP address of the server, and sends a request to that web server and that server sends a reponse back.                                           <!-- answer -->
