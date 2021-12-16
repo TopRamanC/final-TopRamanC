@@ -9,6 +9,10 @@ RUN apt-get install curl
 RUN a2enmod userdir
 RUN a2enmod dir
 RUN a2enmod rewrite
+RUN a2enmod ssl
+
+COPY certificate.pem /etc/ssl/certs
+COPY key.pem /etc/ssl
 
 RUN groupadd cit384
 RUN useradd user1
@@ -27,10 +31,12 @@ COPY final.cit384.conf /etc/apache2/sites-available
 COPY special.cit384.conf /etc/apache2/sites-available
 COPY mywebsite.cit384.conf /etc/apache2/sites-available
 
+
 RUN a2ensite final.cit384.conf
 RUN a2ensite special.cit384.conf
 RUN a2ensite mywebsite.cit384.conf
 
 EXPOSE 80
+EXPOSE 443
 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
